@@ -22,7 +22,7 @@ const CoinReward = () => {
   }, []);
 
   useEffect(() => {
-    if (duration >= 60) {
+    if (duration >= 1) {
       setShowCoin(true); // Show coin after 60 minutes
     }
   }, [duration]);
