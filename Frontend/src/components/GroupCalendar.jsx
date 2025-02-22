@@ -5,7 +5,7 @@ import "react-calendar/dist/Calendar.css";
 export default function GroupCalendar() {
   const [date, setDate] = useState(new Date());
 
-  // Sample Study Sessions (Later, Fetch from Backend)
+  
   const studySessions = [
     { date: "2025-02-25", topic: "Data Structures", time: "5:00 PM" },
     { date: "2025-03-02", topic: "Operating Systems", time: "6:00 PM" },

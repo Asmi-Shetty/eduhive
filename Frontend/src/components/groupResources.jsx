@@ -5,7 +5,7 @@ export default function GroupResources() {
     <div className="max-w-4xl mx-auto p-6 bg-gray-900 text-white rounded-lg shadow-lg mt-6">
       <h1 className="text-3xl font-bold mb-6 text-center">GroupName and its resources</h1>
 
-      {/* Upload Section */}
+      
       <div className="mb-6 p-4 bg-gray-800 rounded-lg">
         <h2 className="text-lg font-semibold mb-2 flex items-center gap-2">
           <FiUpload className="text-blue-500" /> Upload New Resource
@@ -18,7 +18,7 @@ export default function GroupResources() {
         </div>
       </div>
 
-      {/* Resources List */}
+      
       <div>
         <h2 className="text-lg font-semibold mb-3">Available Resources</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

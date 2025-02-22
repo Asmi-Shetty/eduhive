@@ -6,9 +6,9 @@ const Button = ({ label, onClick, type = "button", to }) => {
 
     const handleClick = () => {
         if (to) {
-            navigate(to);  // Navigate if 'to' prop is provided
+            navigate(to);  
         } else if (onClick) {
-            onClick(); // Otherwise, trigger the provided onClick function
+            onClick();
         }
     };
 
