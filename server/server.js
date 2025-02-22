@@ -52,10 +52,7 @@ app.use('/api/meeting', meetingRoutes);
 app.use('/api/rewards', rewardRoutes);
 app.use('/api/ai', aiRoutes);
 app.use('/api/leaderboard', leaderboardRoutes); 
-app.use('/api/profile',profileRoutes);
 app.use('/api/task',taskRoutes);
-// app.use('/api/notes',noteRoutes);
-// app.use('/api/group',groupRoutes);
 app.use('/api', notesRoute);
 
 const rooms = {}; // Store users in each video chat room
