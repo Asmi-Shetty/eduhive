@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
-import Timer from "./timer";
 
 const CoinReward = () => {
-  const [duration, setDuration] = useState(0); // Time in minutes
+  const [duration, setDuration] = useState(0);
   const [showCoin, setShowCoin] = useState(false);
-  const [isVisible, setIsVisible] = useState(true); // Visibility of coin
+  const [isVisible, setIsVisible] = useState(true);
 
-  // Handle close button click
   const handleCloseClick = () => {
     setIsVisible(false);
   };
@@ -16,33 +14,27 @@ const CoinReward = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setDuration((prev) => prev + 1);
-    }, 60000); // Increment duration every 60 seconds (1 minute)
+    }, 60000);
 
-    return () => clearInterval(interval); // Cleanup interval on unmount
+    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
-    if (duration >= 1) {
-      setShowCoin(true); // Show coin after 60 minutes
+    console.log("Duration:", duration); // Debugging
+    if (duration >= 0) { // Changed from 1 to 0 for testing
+      setShowCoin(true);
     }
   }, [duration]);
 
   return (
     <div className="relative min-h-screen flex items-center justify-center">
-      <div className="relative min-h-screen flex justify-center bg-gray-900">
-        <div className="absolute top-10">
-          <Timer />
-        </div>
-      </div>
-
-      {/* Coin component */}
       {showCoin && isVisible && (
         <div className="transform transition-all duration-500 ease-in-out z-20 mb-28 opacity-100 scale-100">
           <span className="absolute top-0 right-0 p-2 text-white cursor-pointer" onClick={handleCloseClick}>
             <FontAwesomeIcon icon={faXmark} />
           </span>
           <img
-            src="/coin.png"
+            src="/coin.png" // Change the path as needed
             alt="Coin"
             className="w-96 h-96 mx-auto spinY"
           />

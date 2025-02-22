@@ -44,7 +44,6 @@ const Navbar = () => {
   return (
     <nav className="bg-gray-800 text-white shadow-md w-screen">
       <div className="container mx-auto ml-2 flex justify-between items-center py-4 px-6">
-        {/* Logo and Brand Name */}
         <div className="flex items-center ml-0">
           <Link to="/home" className="flex items-center hover:text-teal-400 transition duration-300">
             <img src="/wings logo.png" alt="EduHive Logo" className="h-14 w-14 rounded-md" />
@@ -80,10 +79,13 @@ const Navbar = () => {
 
           <li>
             <div className="flex items-center space-x-2 bg-yellow-500 text-black px-4 py-2 rounded-full shadow-lg">
-              <FontAwesomeIcon icon={faCoins} className="text-xl" />
-              <span className="text-lg font-semibold">{coinCount}</span>
+              <a href="/reward" className="flex items-center space-x-2">
+                <FontAwesomeIcon icon={faCoins} className="text-xl" />
+                <span className="text-lg font-semibold">{coinCount}</span>
+              </a>
             </div>
           </li>
+
         </ul>
       </div>
     </nav>
