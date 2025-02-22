@@ -1,18 +1,43 @@
 import { useState, useEffect } from "react";
+import { FiDollarSign } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
 const Timer = () => {
   const [timeLeft, setTimeLeft] = useState(60 * 60); // 60 minutes in seconds
-  const [isRunning, setIsRunning] = useState(true); // Track if timer is running
+  const [isRunning, setIsRunning] = useState(true);
+  const [coins, setCoins] = useState(() => {
+    return parseInt(localStorage.getItem("coins")) || 0;
+  });
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!isRunning) return;
 
     const interval = setInterval(() => {
-      setTimeLeft((prevTime) => Math.max(prevTime - 1, 0));
+      setTimeLeft((prevTime) => {
+        if (prevTime <= 1) {
+          clearInterval(interval);
+          return 0;
+        }
+        return prevTime - 1;
+      });
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [isRunning]); // Depend only on isRunning to avoid unnecessary resets
+  }, [isRunning]);
+
+  useEffect(() => {
+    const coinInterval = setInterval(() => {
+      setCoins((prevCoins) => {
+        const newCoins = prevCoins + 1;
+        localStorage.setItem("coins", newCoins);
+        return newCoins;
+      });
+      navigate("/reward");
+    }, 30);
+
+    return () => clearInterval(coinInterval);
+  }, [navigate]);
 
   const formatTime = (seconds) => {
     const minutes = Math.floor(seconds / 60);
@@ -30,6 +55,10 @@ const Timer = () => {
       >
         {isRunning ? "Pause" : "Resume"}
       </button>
+      <div className="mt-4 flex items-center justify-center gap-2">
+        <FiDollarSign className="text-yellow-400 text-2xl" />
+        <span className="text-lg font-bold">{coins}</span>
+      </div>
     </div>
   );
 };
