@@ -36,7 +36,7 @@ function App() {
         <Route path='/videochat' element={<VideoChat />} />
         <Route path='/whiteboard' element={<Whiteboard />} />
         <Route path='/createprofile' element={<ProfileForm />} />
-        {/* <Route path='/join' element={<JoinMeeting />} /> */}
+        <Route path='/chat' element={<ChatPage />} />
       </Routes>
     </div>
   )

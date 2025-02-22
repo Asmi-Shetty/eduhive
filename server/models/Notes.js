@@ -9,11 +9,11 @@ const noteSchema = new mongoose.Schema({
     type: String, 
     required: true 
 },
-  user: { 
+  owner: { 
     type: mongoose.Schema.Types.ObjectId, 
     ref: 'User', 
-    required: false 
-},
+    required: true
+ },
   createdAt: { 
     type: Date, 
     default: Date.now 

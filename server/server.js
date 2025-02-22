@@ -14,6 +14,7 @@ const aiRoutes = require("./routes/aiRoutes");
 const leaderboardRoutes = require("./routes/leaderboardRoutes");
 const profileRoutes = require("./routes/profileRoutes");
 const taskRoutes = require("./routes/taskRoutes");
+const notesRoute = require('./routes/notesRoutes');
 // const groupRoutes = require("./routes/groupRoutes");
 
 dotenv.config();
@@ -44,6 +45,7 @@ app.use('/api/profile',profileRoutes);
 app.use('/api/task',taskRoutes);
 // app.use('/api/notes',noteRoutes);
 // app.use('/api/group',groupRoutes);
+app.use('/api', notesRoute);
 
 const rooms = {}; // Store users in each video chat room
 
