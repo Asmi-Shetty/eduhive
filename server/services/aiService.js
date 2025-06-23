@@ -1,7 +1,7 @@
 const axios = require('axios');
 require('dotenv').config();
 
-const summarizeText = async (text) => {
+const summarizeText = async (text) =>{
     try {
         const response = await axios.post(
             "https://api.openai.com/v1/chat/completions",
