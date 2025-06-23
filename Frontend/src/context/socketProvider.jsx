@@ -21,7 +21,7 @@ const SocketProvider = ({ children }) => {
         setSocket(newSocket);
 
         newSocket.on("connect", () => {
-            console.log("✅ Socket connected:", newSocket.id);
+            console.log("✅Socket connected:", newSocket.id);
         });
 
         newSocket.on("disconnect", (reason) => {
